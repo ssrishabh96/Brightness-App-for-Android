@@ -19,9 +19,9 @@ The idea of the application came to me when started learning Android development
 
 | | |
 |:-------------------------:|:-------------------------:|
-|<img width="45%" alt="Onboarding Screen" src="images/1.png">  SC 1 | <img width="45%" alt="Onboarding Screen" src="images/2.png"> SC 2| <img width="45%" alt="Onboarding Screen" src="images/3.png"> |
-|<img width="45%" alt="Onboarding Screen" src="images/3.png">  SC 3 | <img width="45%" alt="Onboarding Screen" src="images/4.png"> SC 4| <img width="45%" alt="Onboarding Screen" src="images/3.png"> |
-|<img width="45%" alt="Onboarding Screen" src="images/5.png">  SC 5 | <img width="45%" alt="Onboarding Screen" src="images/6.png"> SC 6| <img width="45%" alt="Onboarding Screen" src="images/3.png"> |
+|<img width="45%" alt="Onboarding Screen" src="images/1.png">  SC 1 | <img width="45%" alt="Onboarding Screen" src="images/2.png"> SC 2|
+|<img width="45%" alt="Onboarding Screen" src="images/3.png">  SC 3 | <img width="45%" alt="Onboarding Screen" src="images/4.png"> SC 4|
+|<img width="45%" alt="Onboarding Screen" src="images/5.png">  SC 5 | |
 
 ## App Store Statistics:
 <img src="images/stats.png" alt="Icon">
