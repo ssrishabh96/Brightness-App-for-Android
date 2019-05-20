@@ -1,6 +1,5 @@
-# Copy-Save-for-Android
-The app stores persistent clipboard text indefinitely. Everything a user copies in the clipboard is stored forever unless user explicitly deletes it.  Captures the copied data automatically.
-
+# Brightness App for Android
+Brightness app for Android. The ultimate app to adjust screen brightness or call it a screen dimmer app . The app is a real handy utility for night owls. Awesome custom design makes it really appealing to use.
 <figure>
     <figcaption>App Icon:</figcaption>
     <img src="/images/icon.png" alt="Icon" height ="120" width="120">
@@ -10,9 +9,11 @@ The app stores persistent clipboard text indefinitely. Everything a user copies 
 
 
 ## Idea:
-The idea of the application came to me when I had to use some text that I copied a day before but couldn't retreive it because the clipboard only stores ine thing at a time. That's when I decided to make my own thing and it works flawlessly.
+The idea of the application came to me when started learning Android development, I started really with really simple things and grew myself over time with writing more and more code. The widget is a custom view that controls the brightness of the system.
 
-## TLDR: the idea popped up out my own needs.
+
+
+## TLDR: Simple project during my intial phase and my personal need
 
 ## Screenshots:
 
@@ -22,56 +23,44 @@ The idea of the application came to me when I had to use some text that I copied
 |<img width="45%" alt="Onboarding Screen" src="images/3.png">  SC 3 | <img width="45%" alt="Onboarding Screen" src="images/4.png"> SC 4| <img width="45%" alt="Onboarding Screen" src="images/3.png"> |
 |<img width="45%" alt="Onboarding Screen" src="images/5.png">  SC 5 | <img width="45%" alt="Onboarding Screen" src="images/6.png"> SC 6| <img width="45%" alt="Onboarding Screen" src="images/3.png"> |
 
-## Demo:
-<img src="CopySave.gif" alt="Icon">
+## App Store Statistics:
+<img src="stats.png" alt="Icon">
 
 
 ## Working:
-The app creates and starts Android service that continuosly monitors the clipboard and whenever any text or data is copied into the clipboard it responds to the program that initally for the first time creates a Realm database and then appends the data to it. 
-
-To prevent data redundancy the program computes the hash of the text which is used as the primary key to avoid duplciates and make it able to recognize previously stored text. 
+The app creates and starts Android service that continuosly monitors the changes in the system brightness and when the user opens the app it reads the current system brightness and manipulate it accordingly.
 
 ```java
-if (clipboardManager.hasPrimaryClip()) {
-            if (clipboardManager.getPrimaryClip().getDescription().hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN) ||
-                    clipboardManager.getPrimaryClip().getDescription().hasMimeType(ClipDescription.MIMETYPE_TEXT_HTML)) {
+    brightnessSeekbar.setOnSeekCircleChangeListener(new SeekCircle.OnSeekCircleChangeListener() {
+        @Override
+        public void onProgressChanged(SeekCircle seekCircle, int progress, boolean fromUser) {
+            brightnessTV.setText(progress + "%");
 
-                final ClipData clipData = clipboardManager.getPrimaryClip();
-
-                if (clipData.getDescription().hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN)) {
-
-                    realm.executeTransaction(new Realm.Transaction() {
-                        @Override
-                        public void execute(Realm realm) {
-
-                            MyPojos temp = new MyPojos();
-                            Log.i(TAG, "execute: clipdata:  " + clipData);
-                            temp.setData(clipData.getItemAt(0).getText().toString());
-                            // Compute Hash and set it as primary key for the table, prevents redundancy
-                            temp.setId(temp.getData().hashCode() + ""); //UUID.randomUUID().toString());
-                            realm.copyToRealmOrUpdate(temp);
-                            counter++;
-                            editor.putInt("counter", counter);
-                            editor.commit();
-
-                            if (toast == null || toast.getView().getWindowVisibility() != View.VISIBLE) {
-                                toast = Toast.makeText(getBaseContext(), "Got it!", Toast.LENGTH_SHORT);
-                                toast.show();
-                            }
-                        }
-                    });
-                }
+            if (progress > minimum) {
+                Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, (int) (progress * 2.55));
+                brightnessTV.setText(progress + "%");
             } else {
-                Log.i(TAG, "performClipboardCheck: fired can't work with image or incompatible data");
+                seekCircle.setProgress(minimum);
+                Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, minimum);
+                brightnessTV.setText(minimum + "%");
             }
+        }
+
+        @Override
+        public void onStartTrackingTouch(SeekCircle seekCircle) {
+        }
+
+        @Override
+        public void onStopTrackingTouch(SeekCircle seekCircle) {
+        }
+    });
+
 ```
 
 ## Libraries Used:
-- Realm Database backend
-- AutoFitTextView ('me.grantland:autofittextview:0.2.1')
 - Google Play Services backend
 - Android About Page(https://github.com/medyo/android-about-page)
-- Paper onboarding (https://github.com/Ramotion/paper-onboarding-android)
+- RateMe Dialog Library ('com.androidsx:rate-me:4.0.3')
 
 ## Current Status:
 Currently, the application is unpublished from the Play Store market. The reason being, the app has integrated ads and as per my student visa regulations in United States I am not allowed to have any source of passive income and I had to take the app down. I am planning on working on it and republish it without any ads for free.
