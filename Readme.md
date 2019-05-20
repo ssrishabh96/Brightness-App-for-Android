@@ -24,7 +24,7 @@ The idea of the application came to me when started learning Android development
 |<img width="45%" alt="Onboarding Screen" src="images/5.png">  SC 5 | <img width="45%" alt="Onboarding Screen" src="images/6.png"> SC 6| <img width="45%" alt="Onboarding Screen" src="images/3.png"> |
 
 ## App Store Statistics:
-<img src="stats.png" alt="Icon">
+<img src="images/stats.png" alt="Icon">
 
 
 ## Working:
