@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="warning">*Minimum is 2 to prevent accidental blackout*</string>
+</resources>

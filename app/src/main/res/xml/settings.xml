@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:title="Settings">
+
+    <!-- Prefernece Category for User Information-->
+    <PreferenceCategory
+        android:orderingFromXml="false"
+        android:title="User Information">
+
+
+        <EditTextPreference
+            android:defaultValue="@string/username_default"
+            android:title="Your Name:"
+            android:icon="@mipmap/ic_launcher"
+            android:key="@string/username_key"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:orderingFromXml="false"
+        android:title="Notification &amp; Alerts Preferences">
+
+        <RingtonePreference
+            android:ringtoneType="notification"
+            android:showDefault="true"
+            android:key="@string/notification_tone_key"
+            android:showSilent="true"
+            android:summary="Select you preferred notification tone"
+            android:title="Notification Tone" />
+
+        <CheckBoxPreference
+            android:background="@color/colorAccent"
+            android:summary="Do you want to receive notification alerts?"
+            android:summaryOff="Currently the notifications are off"
+            android:summaryOn="Currently the notifications are enabled"
+            android:title="Notification alerts" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:orderingFromXml="false"
+        android:title="Updates &amp; Notifications">
+
+        <CheckBoxPreference
+            android:background="@color/colorAccent"
+            android:summary="Get Update Notification?"
+            android:summaryOff="No, not receiving"
+            android:summaryOn="Yes, receiving"
+            android:title="Application Updates" />
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

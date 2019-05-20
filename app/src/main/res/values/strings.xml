@@ -1,0 +1,18 @@
+<resources>
+
+    <string name="app_name">Brightness</string>
+    <string name="enable_filter">Enable</string>
+    <string name="go_to_setting">Allow</string>
+    <string name="noti_detail">Click here to adjust brightness.</string>
+    <string name="noti_title">Screen Brightness is running.</string>
+    <string name="off_filter">Off</string>
+    <string name="on_filter">On</string>
+    <string name="security_message">According to Android guidelines, an application needs permission to control the brightness. Click &quot;Allow&quot; to go to settings and grant permission now.</string>
+    <string name="warning">*Minimum Brightness is 2 to prevent accidental blackout*</string>
+    <string name="copy_right">Copyrights © %1$d</string>
+
+    <string name="notification_tone_key">notification_tone_key</string>
+
+    <string name="username_key">username</string>
+    <string name="username_default">User</string>
+</resources>

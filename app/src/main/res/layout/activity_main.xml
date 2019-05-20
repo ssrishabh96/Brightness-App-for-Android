@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:seekcircle="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="user"
+            type="androbright.brightness.rishabh.androbright.model.User" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@android:color/black"
+        android:baselineAligned="true"
+        tools:context="androbright.brightness.rishabh.androbright.MainActivity">
+
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/my_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme">
+
+            <TextView
+                android:id="@+id/appTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-smallcaps"
+                android:padding="4dp"
+                android:text="@string/app_name"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </android.support.v7.widget.Toolbar>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="8dp">
+
+            <androbright.brightness.rishabh.androbright.customView.SeekCircle
+                android:id="@+id/seekCircle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="false"
+                android:layout_marginTop="20dp"
+                seekcircle:max="100"
+                seekcircle:min="0"
+                seekcircle:progress="25" />
+
+            <TextView
+                android:id="@+id/brightnessTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="@android:color/background_dark"
+                android:fontFamily="casual"
+                android:paddingBottom="30dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="50"
+                android:textSize="40sp"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/textView"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="true"
+                android:gravity="center|bottom"
+                android:padding="6dp"
+                android:text="@string/warning"
+                android:textIsSelectable="false"
+                android:textStyle="italic"
+                android:typeface="serif"
+                android:layout_below="@+id/seekCircle"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/adView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                seekcircle:adSize="SMART_BANNER"
+                seekcircle:adUnitId="ca-app-pub-9816038748687358/7963197627" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>
